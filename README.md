@@ -13,6 +13,8 @@ This repo has for branches:
 - **kotlin-kapt**: second activity converted to Kotlin, using only `kapt`. Same issue.
 - **kotlin-workaround**: second activity converted to Kotlin, using `annotationProcessor`. Uses a `@JvmField()` to workaround the problem of ButterKnife not injecting the Kotlin activity.
 
+Notice that there are two small, Espresso tests that check if injection has been successful in each activity. Also, the message at the bottom of each activity shows you whether the injection succeeded or not.
+
 ## License
 
 > MIT License
