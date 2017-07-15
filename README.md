@@ -9,9 +9,11 @@ This repo has for branches:
 - **master**: original code, only Java
 - **kotlin-annotationprocessor**: second activity converted to Kotlin, still using `annotationProcessor`. Compiles, but injection fails.
 - **kotlin-annotationprocessor-kapt**: second activity converted to Kotlin, using both `annotationProcessor` and `kapt`. Compilation fails with "Error:@BindView fields must not be private or static." I've also seen a "Error:Execution failed for task ':app:compileDebugJavaWithJavac'.
-> kotlin.jvm.internal.FunctionReference.<init>(ILjava/lang/Object;)V" in some cases. See the following Stack Overflow question: [Project won't build with Kotlin 1.1.3](https://stackoverflow.com/questions/44769417/project-wont-build-with-kotlin-1-1-3).
+kotlin.jvm.internal.FunctionReference.<init>(ILjava/lang/Object;)V" in some cases. See the following Stack Overflow question: [Project won't build with Kotlin 1.1.3](https://stackoverflow.com/questions/44769417/project-wont-build-with-kotlin-1-1-3).
 - **kotlin-kapt**: second activity converted to Kotlin, using only `kapt`. Same issue.
-- **kotlin-workaround**: second activity converted to Kotlin, using `annotationProcessor`. Uses a `@JvmField()` to workaround the problem of ButterKnife not injecting the Kotlin activity.
+- **kotlin-workaround**: second activity converted to Kotlin, using only `kapt3`. Uses a `@JvmField()` to workaround the problem of ButterKnife not injecting the Kotlin activity. Notice the usage of `kapt3` by applying the `kotlin-kapt` plugin to Gradle script.
+
+> **Important**: make sure to clean the build after aplying the workaround, as sometimes generated code is left and produces errors during compilation.
 
 Notice that there are two small, Espresso tests that check if injection has been successful in each activity. Also, the message at the bottom of each activity shows you whether the injection succeeded or not.
 
