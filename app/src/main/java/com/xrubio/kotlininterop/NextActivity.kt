@@ -10,6 +10,7 @@ import butterknife.ButterKnife
 class NextActivity : AppCompatActivity() {
 
     @BindView(R.id.textView)
+    @JvmField()
     internal var textView: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
